@@ -1,6 +1,15 @@
 import React from "react";
+import memesData from "./../data";
 
 function Meme(props) {
+  function handleUrlImage(e) {
+    const memes = memesData.data.memes;
+    const random = Math.floor(Math.random() * memes.length);
+    console.log(memes[random].url);
+
+    e.preventDefault();
+  }
+
   return (
     <main className="mt-16 p-8">
       <form className="grid grid-cols-2 gap-4">
@@ -16,6 +25,7 @@ function Meme(props) {
         />
         <button
           type="submit"
+          onClick={handleUrlImage}
           className="mt-6 bg-gradient-to-r from-yellow-600 to-orange-500 text-white font-bold p-2 rounded-lg col-span-2">
           Generate meme image
         </button>
