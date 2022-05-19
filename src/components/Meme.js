@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import memesData from "./../data";
 
 function Meme(props) {
-  function handleUrlImage(e) {
+  const [memeImage, setMemeImage] = useState("");
+
+  function getMemeImage(e) {
     const memes = memesData.data.memes;
     const random = Math.floor(Math.random() * memes.length);
     console.log(memes[random].url);
+    setMemeImage((prevMemeImage) => (prevMemeImage = memes[random].url));
 
     e.preventDefault();
   }
@@ -25,11 +28,18 @@ function Meme(props) {
         />
         <button
           type="submit"
-          onClick={handleUrlImage}
+          onClick={getMemeImage}
           className="mt-6 bg-gradient-to-r from-yellow-600 to-orange-500 text-white font-bold p-2 rounded-lg col-span-2">
           Generate meme image
         </button>
       </form>
+      <div className="h-80 mt-10">
+        <img
+          src={`./images/${memeImage}.webp`}
+          alt="Experimental meme"
+          className="w-full h-80 object-cover"
+        />
+      </div>
     </main>
   );
 }

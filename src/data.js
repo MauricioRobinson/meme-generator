@@ -4,43 +4,19 @@ const memesData = {
     memes: [
       {
         id: 1,
-        url: "http://placeimg.com/640/480",
+        url: "alex-azabache-MoonoldXeqs-unsplash",
       },
       {
         id: 2,
-        url: "http://placeimg.com/640/480/food",
+        url: "heidi-kaden-kYxgm42SQso-unsplash",
       },
       {
         id: 3,
-        url: "http://placeimg.com/640/480/nature",
+        url: "jasper-wilde-J5IHHz-q9RU-unsplash",
       },
       {
         id: 4,
-        url: "http://placeimg.com/640/480/cats",
-      },
-      {
-        id: 5,
-        url: "http://placeimg.com/640/480/sports",
-      },
-      {
-        id: 6,
-        url: "http://placeimg.com/640/480/animals",
-      },
-      {
-        id: 7,
-        url: "http://placeimg.com/640/480/people",
-      },
-      {
-        id: 8,
-        url: "http://placeimg.com/640/480/city",
-      },
-      {
-        id: 9,
-        url: "http://placeimg.com/640/480/technics",
-      },
-      {
-        id: 10,
-        url: "http://placeimg.com/640/480/fashion",
+        url: "mwangi-gatheca-qlKaN7eqay8-unsplash",
       },
     ],
   },
