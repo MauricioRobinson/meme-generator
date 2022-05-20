@@ -2,13 +2,23 @@ import React, { useState } from "react";
 import memesData from "./../data";
 
 function Meme(props) {
-  const [memeImage, setMemeImage] = useState("");
+  const [meme, setMeme] = useState({
+    topText: "",
+    bottomText: "",
+    randomImage: "alex-azabache-MoonoldXeqs-unsplash",
+  });
+  const [allMemeImages, setAllMemeImages] = useState(memesData);
 
   function getMemeImage(e) {
-    const memes = memesData.data.memes;
+    const memes = allMemeImages.data.memes;
     const random = Math.floor(Math.random() * memes.length);
-    console.log(memes[random].url);
-    setMemeImage((prevMemeImage) => (prevMemeImage = memes[random].url));
+    const url = memes[random].url;
+    setMeme((prevMeme) => {
+      return {
+        ...prevMeme,
+        randomImage: url,
+      };
+    });
 
     e.preventDefault();
   }
@@ -35,7 +45,7 @@ function Meme(props) {
       </form>
       <div className="h-80 mt-10">
         <img
-          src={`./images/${memeImage}.webp`}
+          src={`./images/${meme.randomImage}.webp`}
           alt="Experimental meme"
           className="w-full h-80 object-cover"
         />
