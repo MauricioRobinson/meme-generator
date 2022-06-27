@@ -23,6 +23,16 @@ function Meme(props) {
     e.preventDefault();
   }
 
+  function handleChange(event) {
+    const { name, value } = event.target;
+    setMeme((prevMeme) => {
+      return {
+        ...prevMeme,
+        [name]: value,
+      };
+    });
+  }
+
   return (
     <main className="mt-16 p-8">
       <form className="grid grid-cols-2 gap-4">
@@ -30,11 +40,17 @@ function Meme(props) {
           type="text"
           placeholder="Top text"
           className="border-2 border-slate-500 rounded-lg p-2 mr-4"
+          name="topText"
+          value={meme.topText}
+          onChange={handleChange}
         />
         <input
           type="text"
           placeholder="Bottom text"
           className="border-2 border-slate-500 rounded-lg p-2"
+          name="bottomText"
+          value={meme.bottomText}
+          onChange={handleChange}
         />
         <button
           type="submit"
@@ -43,12 +59,18 @@ function Meme(props) {
           Generate meme image
         </button>
       </form>
-      <div className="h-80 mt-10">
+      <div className="h-80 mt-10 relative flex justify-center">
         <img
           src={`./images/${meme.randomImage}.webp`}
           alt="Experimental meme"
           className="w-full h-80 object-cover"
         />
+        <h2 className="text-6xl absolute top-2 font-semibold text-white">
+          {meme.topText}
+        </h2>
+        <h2 className="text-6xl absolute bottom-2 font-semibold text-white">
+          {meme.bottomText}
+        </h2>
       </div>
     </main>
   );
